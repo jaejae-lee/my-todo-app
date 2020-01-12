@@ -1,3 +1,5 @@
+<script src="http://localhost:8097"></script> 
+
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, StatusBar, TextInput, Dimensions, Platform, ScrollView } from 'react-native';
 

@@ -1,2 +1,4 @@
-### Jae's Tasks - todo app
-build with React native for personal use.
+# Jae's Tasks - todo app
+Build with React native for personal use.
+
+## Mockups
