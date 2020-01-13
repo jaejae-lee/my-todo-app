@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 
 const { height, width } = Dimensions.get("window")
 class ToDo extends Component {
     state = { 
         isEditing: false,
         isDone: false,
+        toDoValue: "",
      }
 
     render() { 
-        const { isDone, isEditing } = this.state;
+        const { isDone, isEditing, toDoValue } = this.state;
+        const { text } = this.props;
         return ( 
             <View style={ styles.container }>
                 <View style={ styles.column }>
                     <TouchableOpacity onPress={ this.toggleDone }>
                         <View style={ [styles.circle,
-                                    isDone? styles.circleDone : styles.circleUnDone] }></View>
+                                       isDone? styles.circleDone : styles.circleUnDone] }></View>
                     </TouchableOpacity>
-                    <Text style={ [styles.text, isDone? styles.textDone :styles.textUnDone] }>Hello Im todo</Text>
+                    {/* editing field */}
+                    { isEditing? 
+                        <TextInput style={ [styles.text, styles.input, isDone? styles.textDone : styles.textUnDone ] }
+                                value={ toDoValue } 
+                                multiline={ true } 
+                                onChangeText={ this.handleInput }
+                                returnKeyType={ "done" }
+                                onBlur={ this.doneEditing }/> 
+                                : <Text style={ [styles.text, isDone? styles.textDone : styles.textUnDone ] }>{ text }</Text>
+                    }
                 </View>
 
+                    {/* icons */}
                     { isEditing? 
                         <View style={ styles.action }>
                             <TouchableOpacity onPressOut={ this.doneEditing }>
@@ -40,7 +52,7 @@ class ToDo extends Component {
                             </View>
                         </TouchableOpacity>
                     </View> 
-                    }   
+                    }  
             </View>
          );     
     }
@@ -52,13 +64,22 @@ class ToDo extends Component {
     }
 
     startEditing = () => {
+        const { text } = this.props;
         this.setState({
             isEditing: true,
+            toDoValue: text,
+
         })
     }
     doneEditing = () => {
         this.setState({
             isEditing: false,
+        })
+    }
+
+    handleInput = (text) => {
+        this.setState({
+            toDoValue: text,
         })
     }
 }
@@ -103,8 +124,7 @@ const styles = StyleSheet.create({
     column:{
         flexDirection: "row",
         alignItems: "center",
-        width : width /2,
-        justifyContent: "space-between",
+        width : width / 2,
     },
     action:{
         flexDirection: "row",
@@ -112,7 +132,9 @@ const styles = StyleSheet.create({
     actionContainer:{
         marginVertical: 10,
         marginHorizontal: 10,
-    }
-
-
+    },
+    input:{
+        paddingTop: 0,
+        width : width / 2,
+    }, 
 })
