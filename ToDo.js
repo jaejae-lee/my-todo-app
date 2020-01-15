@@ -1,17 +1,41 @@
+<script src="http://localhost:8097"></script>
+
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Dimensions, TouchableOpacity, TextInput } from 'react-native';
+import PropTypes from 'prop-types';
 
 const { height, width } = Dimensions.get("window")
+
 class ToDo extends Component {
+    constructor(props){
+        super(props);
+        this.state = { 
+            isEditing:false, 
+            toDoValue: props.text, 
+            isDone: this.props.isDone,
+            text: this.props.text,
+            deleteToDo: this.props.deleteToDo,
+            id: this.props.id,
+        }
+    }
+    
+    // static propTypes = {
+    //     text: PropTypes.string.isRequired,
+    //     isDone: PropTypes.bool.isRequired,
+    //     deleteToDo: PropTypes.func.isRequired,
+    //     id: PropTypes.string.isRequired
+    // }
+
     state = { 
         isEditing: false,
-        isDone: false,
         toDoValue: "",
      }
-
     render() { 
         const { isDone, isEditing, toDoValue } = this.state;
-        const { text } = this.props;
+        const { text, id, deleteToDo } = this.props;
+        console.log(this.state.text, "text");
+        console.log(id, "id");
+        console.log(deleteToDo, "deleteToDo");
         return ( 
             <View style={ styles.container }>
                 <View style={ styles.column }>
@@ -46,7 +70,7 @@ class ToDo extends Component {
                                 <Text style={ styles.actionText }>✏️</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPressOut={ () => deleteToDo(id) }>
                             <View style={ styles.actionContainer }>
                                 <Text style={ styles.actionText }>❌️️</Text>
                             </View>
@@ -68,7 +92,6 @@ class ToDo extends Component {
         this.setState({
             isEditing: true,
             toDoValue: text,
-
         })
     }
     doneEditing = () => {
