@@ -23,6 +23,7 @@ export default class APP extends Component {
 
   render(){
     const { newToDo, loadedToDos, toDos } = this.state;
+    console.log(toDos, "toDos");
     if(!loadedToDos){
       return <AppLoading/>
     }
@@ -47,19 +48,17 @@ export default class APP extends Component {
       </View>
     );
   }
-  
+
   handleNewToDo = (text) => {
     this.setState({
       newToDo: text
     })
   }
-
   loadToDos = () => {
     this.setState({
       loadedToDos: true
     })
   }
-
   addToDo = () => {
     const { newToDo } = this.state;
     if(newToDo !== ""){
@@ -85,11 +84,10 @@ export default class APP extends Component {
       })
     }
   }
-
   deleteToDo = (id) => {
     this.setState(prevState => {
       const toDos = prevState.toDos;
-      deleteToDo.toDos[id];
+      delete toDos[id];
       const newState = {
         ...prevState,
         ...toDos

@@ -18,24 +18,23 @@ class ToDo extends Component {
             id: this.props.id,
         }
     }
-    
-    // static propTypes = {
-    //     text: PropTypes.string.isRequired,
-    //     isDone: PropTypes.bool.isRequired,
-    //     deleteToDo: PropTypes.func.isRequired,
-    //     id: PropTypes.string.isRequired
-    // }
 
-    state = { 
-        isEditing: false,
-        toDoValue: "",
-     }
+
+    //why I need these?
+    /*
+    static propTypes = {
+        text: PropTypes.string.isRequired,
+        isDone: PropTypes.bool.isRequired,
+        deleteToDo: PropTypes.func.isRequired,
+        id: PropTypes.string.isRequired
+    }*/
+
     render() { 
         const { isDone, isEditing, toDoValue } = this.state;
         const { text, id, deleteToDo } = this.props;
-        console.log(this.state.text, "text");
-        console.log(id, "id");
-        console.log(deleteToDo, "deleteToDo");
+        // console.log(this.state.text, "text");
+        // console.log(id, "id");
+        // console.log(deleteToDo, "deleteToDo");
         return ( 
             <View style={ styles.container }>
                 <View style={ styles.column }>
@@ -86,12 +85,9 @@ class ToDo extends Component {
             isDone: !this.state.isDone
         })
     }
-
     startEditing = () => {
-        const { text } = this.props;
         this.setState({
             isEditing: true,
-            toDoValue: text,
         })
     }
     doneEditing = () => {
@@ -99,7 +95,6 @@ class ToDo extends Component {
             isEditing: false,
         })
     }
-
     handleInput = (text) => {
         this.setState({
             toDoValue: text,
