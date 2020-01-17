@@ -18,20 +18,20 @@ class ToDo extends Component {
             id: this.props.id,
         }
     }
-
-
     //why I need these?
     /*
     static propTypes = {
         text: PropTypes.string.isRequired,
         isDone: PropTypes.bool.isRequired,
         deleteToDo: PropTypes.func.isRequired,
-        id: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
+        unDoneToDo:PropTypes.fuc.isRequired,
+        doneToDo:PropTypes.fuc.isRequired,
     }*/
 
     render() { 
-        const { isDone, isEditing, toDoValue } = this.state;
-        const { text, id, deleteToDo } = this.props;
+        const { isEditing, toDoValue } = this.state;
+        const { text, id, deleteToDo, isDone } = this.props;
         // console.log(this.state.text, "text");
         // console.log(id, "id");
         // console.log(deleteToDo, "deleteToDo");
@@ -50,7 +50,7 @@ class ToDo extends Component {
                                 onChangeText={ this.handleInput }
                                 returnKeyType={ "done" }
                                 onBlur={ this.doneEditing }/> 
-                                : <Text style={ [styles.text, isDone? styles.textDone : styles.textUnDone ] }>{ text }</Text>
+                        : <Text style={ [styles.text, isDone? styles.textDone : styles.textUnDone ] }>{ text }</Text>
                     }
                 </View>
 
@@ -81,9 +81,12 @@ class ToDo extends Component {
     }
 
     toggleDone = () => {
-        this.setState({
-            isDone: !this.state.isDone
-        })
+        const { isDone, unDoneToDo, doneToDo, id } = this.props;
+        if(isDone){
+            unDoneToDo(id)
+        }else{
+            doneToDo(id)
+        }
     }
     startEditing = () => {
         this.setState({

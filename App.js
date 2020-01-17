@@ -42,7 +42,14 @@ export default class APP extends Component {
                      onSubmitEditing={ this.addToDo }/>
           <ScrollView contentContainerStyle={ styles.toDos }>
             <ToDo/>
-            { Object.values(toDos).map(toDo => <ToDo key={ toDo.id } { ...toDo } deleteToDo={ this.deleteToDo }/>) }
+            { Object.values(toDos).map(toDo => 
+              <ToDo key={ toDo.id }
+                    deleteToDo={ this.deleteToDo }
+                    unDoneToDo={ this.unDoneToDo }
+                    doneToDo={ this.doneToDo }
+                    { ...toDo } 
+              />
+            )}
           </ScrollView>
         </View>
       </View>
@@ -94,8 +101,37 @@ export default class APP extends Component {
       }
       return {...newState}
     })
-  }
-
+  };
+  unDoneToDo = (id) => {
+    this.setState(prevState => {
+      const newState = {
+        ...prevState,
+        toDos: {
+          ...prevState.toDos,
+          [id]: {
+            ...prevState.toDos[id],
+            isDone: false
+          }
+        }
+      }
+      return {...newState}
+    })
+  };
+  doneToDo = (id) => {
+    this.setState(prevState => {
+      const newState = {
+        ...prevState,
+        toDos: {
+          ...prevState.toDos,
+          [id]: {
+            ...prevState.toDos[id],
+            isDone: true
+          }
+        }
+      }
+      return {...newState}
+    })
+  };
 }
 
 const styles = StyleSheet.create({
