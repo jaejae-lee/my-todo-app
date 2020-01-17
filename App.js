@@ -30,7 +30,7 @@ export default class APP extends Component {
     return (
       <View style={ styles.container }>
         <StatusBar barStyle="light-content"/>
-        <Text style={ styles.title }>Jae's Tasks</Text>
+        <Text style={ styles.title }>Jae's Endless Tasks</Text>
         <View style={ styles.card }>
           <TextInput style={ styles.input }
                      placeholder={ "New to do" }
@@ -171,12 +171,12 @@ export default class APP extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f23657',
+    backgroundColor: '#FF92BA',
     alignItems: 'center',
   },
   title:{
     color: "white",
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: "300",
     marginTop: 50,
     marginBottom: 30,
@@ -203,6 +203,7 @@ const styles = StyleSheet.create({
     }),
   },
   input:{
+    fontSize: 17,
     padding: 20,
     borderBottomColor: "#bbb",
     borderBottomWidth:1,

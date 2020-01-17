@@ -121,23 +121,23 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     circle:{
-        width: 30,
-        height: 30,
+        width: 26,
+        height: 26,
         borderColor: "red",
         borderWidth: 3,
-        borderRadius: 15,
+        borderRadius: 13,
         marginRight: 20,
     },
     circleDone:{
         borderColor: "#bbb"
     },
     circleUnDone:{
-        borderColor: "green",
+        borderColor: "#92FFA0",
     },
     text:{
         fontWeight: "600",
-        fontSize: 20,
-        marginVertical: 20,
+        fontSize: 18,
+        marginVertical: 15,
     },
     textDone:{
         color: "#bbb",
