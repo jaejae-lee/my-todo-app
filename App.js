@@ -1,7 +1,7 @@
 <script src="http://localhost:8097"></script>
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, StatusBar, TextInput, Dimensions, Platform, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, TextInput, Dimensions, Platform, ScrollView, AsyncStorage } from 'react-native';
 import { AppLoading } from "expo";
 import uuidv1 from "uuid/v1";
 
@@ -88,6 +88,7 @@ export default class APP extends Component {
             ...newToDoObj
           }
         }
+        this.saveToDos(newState.toDos)
         return { ...newState }
       })
     }
@@ -100,6 +101,7 @@ export default class APP extends Component {
         ...prevState,
         ...toDos
       }
+      this.saveToDos(newState.toDos)
       return {...newState}
     })
   };
@@ -115,6 +117,7 @@ export default class APP extends Component {
           }
         }
       }
+      this.saveToDos(newState.toDos)
       return {...newState}
     })
   };
@@ -130,6 +133,7 @@ export default class APP extends Component {
           }
         }
       }
+      this.saveToDos(newState.toDos)
       return {...newState}
     })
   };
@@ -145,9 +149,13 @@ export default class APP extends Component {
           }
         }
       }
+      this.saveToDos(newState.toDos)
       return {...newState}
     })
-
+  };
+  saveToDos = (newToDos) => {
+    //async can't save object - convert into strings
+    const saveToDos = AsyncStorage.setItem("toDos", JSON.stringify(newToDos));
   }
 }
 
