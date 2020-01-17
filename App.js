@@ -47,6 +47,7 @@ export default class APP extends Component {
                     deleteToDo={ this.deleteToDo }
                     unDoneToDo={ this.unDoneToDo }
                     doneToDo={ this.doneToDo }
+                    updateToDo={ this.updateToDo }
                     { ...toDo } 
               />
             )}
@@ -132,6 +133,22 @@ export default class APP extends Component {
       return {...newState}
     })
   };
+  updateToDo = (id, text) => {
+    this.setState(prevState => {
+      const newState = {
+        ...prevState,
+        toDos: {
+          ...prevState.toDos,
+          [id]: {
+            ...prevState.toDos[id],
+            text: text
+          }
+        }
+      }
+      return {...newState}
+    })
+
+  }
 }
 
 const styles = StyleSheet.create({

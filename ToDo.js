@@ -27,6 +27,7 @@ class ToDo extends Component {
         id: PropTypes.string.isRequired,
         unDoneToDo:PropTypes.fuc.isRequired,
         doneToDo:PropTypes.fuc.isRequired,
+        updateToDo: PropTypes.fuc.isRequired,
     }*/
 
     render() { 
@@ -94,6 +95,9 @@ class ToDo extends Component {
         })
     }
     doneEditing = () => {
+        const { toDoValue } = this.state;
+        const { id, updateToDo } = this.props;
+        updateToDo(id, toDoValue)
         this.setState({
             isEditing: false,
         })
