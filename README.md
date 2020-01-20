@@ -22,7 +22,7 @@ React Native
 
 
 ## Initial ideation and planning
-** * MVP :<br/> The user can type a task into an input box and save in the todo list<br/> The user can complete and uncomplete the task by clicking a button.<br/> The user can edit and delete the tasks.**
+* **MVP :<br/> The user can type a task into an input box and save in the todo list<br/> The user can complete and uncomplete the task by clicking a button.<br/> The user can edit and delete the tasks.**
 
 * Advanced features : title and description 
 more task statues : pending, in progress, due date etc..  
