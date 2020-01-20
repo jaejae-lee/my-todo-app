@@ -12,15 +12,6 @@ Android apk download: https://expo.io/artifacts/d243c8e5-d592-4fd5-a025-eb9b3cc5
 ## Technologies and skills used
 React Native
 
-## Screenshots
-<span style="display:inline">
-    <img src="./screenshots/loading.png" width="280">
-</span>
-<span style="display:inline">
-    <img src="./screenshots/list.PNG" width="280">
-</span>
-
-
 ## Initial ideation and planning
 * **MVP :<br/> The user can type a task into an input box and save in the todo list<br/> The user can complete and uncomplete the task by clicking a button.<br/> The user can edit and delete the tasks.**
 
@@ -31,6 +22,13 @@ more task statues : pending, in progress, due date etc..
 can simply work with states on react components without using redux. 
 store ToDo items into an array or an object and deal with them.
 
+## Screenshots
+<span style="display:inline">
+    <img src="./screenshots/loading.png" width="280">
+</span>
+<span style="display:inline">
+    <img src="./screenshots/list.PNG" width="280">
+</span>
 
 ##  Testing
 built on expo iso simulater and final app tested on My own Iphone X and Android simulater.
