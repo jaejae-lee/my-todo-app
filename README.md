@@ -1,4 +1,4 @@
-## Life is endless tasks - simple to-to app
+# Life is endless tasks - simple to-to app
 This is my first to-do app using React native for pratice and fun.
 
 ## How to set up
