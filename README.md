@@ -7,20 +7,22 @@ This is my first to-do app using React native for pratice and fun.
 3. run `npm install` 
 4. run `npm start` to view on expo browser
 
+Andriod apk file: https://expo.io/artifacts/d243c8e5-d592-4fd5-a025-eb9b3cc5fe21
+
 ## Technologies and skills used
 React Native
 
 ## Screenshots
 <span style="display:inline;text-align:center">
-    <img src="./screenshots/loading.png" width="400">
+    <img src="./screenshots/loading.png" width="300">
 </span>
 <span style="display:inline;text-align:center">
-    <img src="./screenshots/list.PNG" width="385">
+    <img src="./screenshots/list.PNG" width="300">
 </span>
 
 
 ## Initial ideation and planning
-** MVP : The user can type a task into an input box and save in the todo list<br/> The user can complete and uncomplete the task by clicking a button.<br/> The user can edit and delete the tasks **
+**MVP :<br/> The user can type a task into an input box and save in the todo list<br/> The user can complete and uncomplete the task by clicking a button.<br/> The user can edit and delete the tasks.**
 
 * Advanced features : title and description 
 more task statues : pending, in progress, due date etc..  
