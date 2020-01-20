@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-## Jae's Endless Tasks - todo mobile app
-My todo app using React native for practice and fun.
-
-## Screenshots
-
-
-andriod
-https://expo.io/artifacts/d243c8e5-d592-4fd5-a025-eb9b3cc5fe21
-=======
 # Life is endless tasks - simple to-to app
 This is my first to-do app using React native for pratice and fun.
 
@@ -58,7 +48,6 @@ Done tasks go on the bottom of the lists of stay in the same position.
 
 
 
->>>>>>> a49faf4c2b6a9679331fb57c54dce4d6e84f78bc
 
 
 
