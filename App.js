@@ -1,5 +1,3 @@
-<script src="http://localhost:8097"></script>
-
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, StatusBar, TextInput, Dimensions, Platform, ScrollView, AsyncStorage } from 'react-native';
 import { AppLoading } from "expo";
@@ -30,7 +28,7 @@ export default class APP extends Component {
     return (
       <View style={ styles.container }>
         <StatusBar barStyle="light-content"/>
-        <Text style={ styles.title }>Jae's Endless Tasks</Text>
+        <Text style={ styles.title }>My Tasks</Text>
         <View style={ styles.card }>
           <TextInput style={ styles.input }
                      placeholder={ "New to do" }
@@ -39,7 +37,8 @@ export default class APP extends Component {
                      placeholderTextColor={ "#999" }
                      returnKeyType={ "done" }
                      autoCorrect={ false }
-                     onSubmitEditing={ this.addToDo }/>
+                     onSubmitEditing={ this.addToDo }
+                     underlineColorAndroid={ "transparent" }/>
           <ScrollView contentContainerStyle={ styles.toDos }>
             { Object.values(toDos).reverse().map(toDo => 
                 <ToDo key={ toDo.id }
@@ -69,8 +68,8 @@ export default class APP extends Component {
       const parsedToDos = JSON.parse(toDos);
       console.log(toDos);
       this.setState({
-        loadedToDos: true,
-        toDos: parsedToDos,
+        //first loading app - todo is null so set as an empty object
+        loadedToDos: true, toDos: parsedToDos || {} 
       })
     }catch(err){
       console.log(err)
@@ -171,7 +170,7 @@ export default class APP extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF92BA',
+    backgroundColor: '#D8448E',
     alignItems: 'center',
   },
   title:{

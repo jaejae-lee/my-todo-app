@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-todo-app",
-    "slug": "my-todo-app",
+    "name": "Life is Endless Tasks",
+    "slug": "life-is-endless-tasks",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -14,7 +14,7 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/to-do-app-bg.png",
-      "resizeMode": "cover", 
+      "resizeMode": "cover",
       "backgroundColor": "#FF92BA"
     },
     "updates": {
@@ -25,6 +25,11 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "jaejaelee.todo"
+    },
+    "description": "LIFE IS ENDLESS TASKS - my To-do app for practice and fun",
+    "githubUrl": "https://github.com/jaejae-lee/my-todo-app"
   }
 }

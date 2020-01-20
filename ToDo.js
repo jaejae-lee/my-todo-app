@@ -33,9 +33,6 @@ class ToDo extends Component {
     render() { 
         const { isEditing, toDoValue } = this.state;
         const { text, id, deleteToDo, isDone } = this.props;
-        // console.log(this.state.text, "text");
-        // console.log(id, "id");
-        // console.log(deleteToDo, "deleteToDo");
         return ( 
             <View style={ styles.container }>
                 <View style={ styles.column }>
@@ -50,7 +47,8 @@ class ToDo extends Component {
                                 multiline={ true } 
                                 onChangeText={ this.handleInput }
                                 returnKeyType={ "done" }
-                                onBlur={ this.doneEditing }/> 
+                                onBlur={ this.doneEditing }
+                                underlineColorAndroid={ "transparent" }/> 
                         : <Text style={ [styles.text, isDone? styles.textDone : styles.textUnDone ] }>{ text }</Text>
                     }
                 </View>
@@ -135,7 +133,7 @@ const styles = StyleSheet.create({
         borderColor: "#bbb"
     },
     circleUnDone:{
-        borderColor: "#92FFA0",
+        borderColor: "#7CA4FC",
     },
     text:{
         fontWeight: "600",
